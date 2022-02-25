@@ -1,0 +1,30 @@
+.mycont {
+  text-align: center;
+}
+.logo{
+  color: rgb(16, 49, 138);
+}
+.logoImg{
+  background-size: contain;
+  background-position: center;
+      width:100%;
+      height:100%;
+      clear:both;
+  }
+  
+  .logoImg img {
+      margin-left: 25%;
+      margin-right: 25%;
+  }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(16, 49, 138);
+  color: white;
+  text-align: center;
+}
+a:link {
+  color:inherit white;
+}
