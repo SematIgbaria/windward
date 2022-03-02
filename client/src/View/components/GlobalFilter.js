@@ -7,6 +7,7 @@ export const GlobalFilter = ({ filter, setFilter }) => {
     setFilter(value || undefined)
   }, 500)
   return (
+    <div className='global-f'>
     <span>
       Global Search:{' '}
       <input
@@ -15,7 +16,9 @@ export const GlobalFilter = ({ filter, setFilter }) => {
           setValue(e.target.value);
           onChange(e.target.value);
         }}
+        placeholder="⚓Search.."
       />
     </span>
+    </div>
   )
 }

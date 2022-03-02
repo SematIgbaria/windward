@@ -1,5 +1,11 @@
 .mycont {
   text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* position:relative; */
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center; */
+  overflow-y: scroll;
 }
 .logo{
   color: rgb(16, 49, 138);
@@ -16,15 +22,51 @@
       margin-left: 25%;
       margin-right: 25%;
   }
-.footer {
-  position: fixed;
+#footer {
+ position: static;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: rgb(16, 49, 138);
   color: white;
   text-align: center;
+  margin-top: 2em;
+  height: 3em;
+  padding-top: 0.1em;
 }
-a:link {
+a {
   color:inherit white;
+  text-decoration:none;
+}
+a:hover { text-decoration : none;
+}
+
+.w3-image{
+object-fit: cover;
+width: 100%;
+}
+
+header{
+  background-color: rgb(158, 124, 83);
+}
+
+.header-cont{
+  background-color: rgb(61, 150, 201);
+}
+#header-name{
+  padding-top: 13%;
+}
+
+input{
+  background-color: rgb(238, 242, 245);
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+
+
+
+}
+
+.global-f{
+  margin-top: 2em;
+  margin-bottom: 2em;
 }

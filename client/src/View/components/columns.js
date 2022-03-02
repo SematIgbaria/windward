@@ -1,10 +1,13 @@
 export const FLEET_COLUMNS = [
-  // {
-  //   Header: 'Id',
-  //   accessor: 'id',
-  //   disableFilters: true,
-  //   sticky: 'left'
-  // },
+  {
+    Header: "Index",
+    accessor: "",
+    Cell: (row) => {
+      return <div>🚢 {Number(row.row.id) + 1}</div>;
+    },
+    disableSortBy: true,
+    disableFilters: true,
+},
   {
     Header: 'Fleet Name',
     accessor: 'name',
@@ -19,12 +22,15 @@ export const FLEET_COLUMNS = [
 
 
 export const VESSELS_COLUMNS = [
-  // {
-  //   Header: 'Id',
-  //   accessor: 'id',
-  //   disableFilters: true,
-  //   sticky: 'left'
-  // },
+  {
+    Header: "Index",
+    accessor: "",
+    Cell: (row) => {
+      return <div>🚢 {Number(row.row.id) + 1}</div>;
+    },
+    disableSortBy: true,
+    disableFilters: true,
+},
   {
     Header: 'Vessel Name',
     accessor: 'name',

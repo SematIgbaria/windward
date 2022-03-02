@@ -5,9 +5,10 @@ export const ColumnFilter = ({ column }) => {
   return (
     <span>
       Search:{' '}
-      <input
+      <input className='cf'
         value={filterValue || ''}
         onChange={e => setFilter(e.target.value)}
+        placeholder="⚓Search.."
       />
     </span>
   )

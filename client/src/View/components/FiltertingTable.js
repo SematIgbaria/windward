@@ -5,13 +5,17 @@ import { GlobalFilter } from './GlobalFilter'
 import { ColumnFilter } from './ColumnFilter'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
+import TableHeader from './TableHeader'
 
 export const FilteringTable = (props) => {
   const COLUMNS_TYPE = props.COLUMNS_TYPE;
   const MOCK_DATA = props.MOCK_DATA;
   const page = props.page;
-  const columns = useMemo(() => COLUMNS_TYPE, [])
-  const data = useMemo(() => MOCK_DATA, [])
+ // const columns = useMemo(() => COLUMNS_TYPE, [])
+ // const data = useMemo(() => MOCK_DATA, [])
+  const data = MOCK_DATA
+  const columns = COLUMNS_TYPE
+
   const [name, setName] = useState('');
 
 
@@ -54,6 +58,8 @@ export const FilteringTable = (props) => {
   return (
     <>
       <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <div className='tableDiv'>
+      <TableHeader page={page} />
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
@@ -80,6 +86,7 @@ export const FilteringTable = (props) => {
           })}
         </tbody>
       </table>
+      </div>
     </>
   )
 }

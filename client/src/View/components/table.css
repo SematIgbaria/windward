@@ -1,10 +1,31 @@
 table {
   font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 70%;
+  /* width: 70%; */
   margin-left: auto;
   margin-right: auto;
+  table-layout: fixed;
+  /* width: 180px;  */
+
 }
+/* .pageType{
+  width: 70%;
+} */
+
+.tableHeader{
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  background-color: #16328b;
+  color: white;
+  /* position: relative; */
+  margin-top: 17px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin: 0 auto;
+}
+/* .tableDiv{
+  width: 100vmax;
+} */
 
 table td,
 table th {
@@ -20,7 +41,7 @@ table tr:nth-child(odd) {
 }
 
 table tr:hover {
-  background-color: #ddd;
+  background-color: rgb(163, 224, 248);
 }
 
 table th{
@@ -38,3 +59,18 @@ table td{
 button{
   margin-top: 12px;
 }
+
+.cf{
+  size: 1;
+  resize: horizontal;
+        width: 200px;
+}
+
+.cf:active{
+
+ width: auto;   
+    }
+
+.cf:focus {
+        min-width: 20px;
+    }

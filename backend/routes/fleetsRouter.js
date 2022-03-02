@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');  //w2
-const fl = require('../data/fleets.json'); // w1
+const f1_fleets = require('../data/fleets.json'); // w1
+const Veseels = require('../data/vessels.json');
+const jp = require('jsonpath');
 
 const fleetsRouter = express.Router();
 fleetsRouter.use(bodyParser.json());
@@ -54,6 +56,33 @@ fleetsRouter.route('/fleet/:fleetId')
         res.send({ vessels: vessels });
       })
     })
+  })
+
+fleetsRouter.route('/veseels/:searchIn')
+  .get((req, res, next) => {
+    const searchIn = req.params.searchIn
+    let myFleets = [];
+    const matchedVessels = jp.query(Veseels, `$..[?(@.name=='${searchIn}' || @.flag=='${searchIn}' || @.mmsi=='${searchIn}')]`);
+    const vesselsIds = jp.query(matchedVessels, '$.._id')
+
+    f1_fleets.forEach(function (currentv, index) {
+
+      //  let matchedFleets = jp.query(currentv, `$.[?(@.veseels[*]._id subsetof ${vesselsIds})]`)
+      let currentvessels = jp.query(currentv, '$.vessels[*]._id')
+      const filteredArray = currentvessels.filter(value => vesselsIds.includes(value));
+
+      if (filteredArray.length > 0) {
+        const newFleet = {
+          _id: currentv._id,
+          name: currentv.name,
+          count: currentv.vessels.length
+        };
+        myFleets.push(newFleet);
+      }
+    })
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.send({ fleets:myFleets});
   })
 
 module.exports = fleetsRouter;

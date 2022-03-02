@@ -4,6 +4,7 @@ import Fleet from './View/Fleet';
 import Main from './View/Main';
 import ErrorPage from './View/ErrorPage';
 import { useEffect, useState } from 'react';
+import windward from './imgs/wind3.jpg';
 
 function App() {
 
@@ -27,9 +28,19 @@ function App() {
 
 
   return (
+    <>
     <div className='mycont'>
-      <h1 className='logo'>WINDWARD</h1>
 
+<div className='header-cont'>
+      <div className="w3-display-container w3-content w3-wide" id="home">
+      <img className="w3-image" src={windward} />
+      <div className="w3-display-topmiddle w3-margin-top w3-center" id="header-name">
+        
+        <h1 className="w3-xxlarge w3-text-white"><span className="w3-padding w3-black w3-opacity-min">
+          <b>WINDWARD</b></span> <span className="w3-hide-small w3-text-blue">AI</span></h1>
+      </div>
+    </div>
+    </div>
 
       <Routes>
         <Route path='/' element={fleets && <Main fleets={fleets} />} />
@@ -37,11 +48,12 @@ function App() {
         <Route path='*' element={<ErrorPage />} />
       </Routes>
 
-      <footer class="footer">
-        <p>Data by <a href="https://windward.ai/" title="W3.CSS" target="_blank" class="w3-hover-text-green">Windward</a></p>
+      <footer className='w3-center' id="footer">
+        <p>Data by <a href="https://windward.ai/" title="W3.CSS" target="_blank" className="w3-hover-text-green">Windward</a></p>
       </footer>
 
     </ div>
+    </>
   );
 }
 
